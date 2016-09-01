@@ -1,0 +1,113 @@
+******************
+*Simple Dice Game*
+******************
+	Problem: 
+        
+	-No bugs found in this testing.
+ 
+	Steps taken:
+
+	-Doing nothing.
+
+===========================================================================================
+**************
+*Simple Craps*
+**************
+	Problem:
+
+	Class<T>.getDeclaredMethods0(boolean) line: not available [native method] 
+
+	Steps taken:
+	Google. "Sometimes this happens if you have a Java Exception breakpoint, or a class 
+ 	load breakpoint. Check your Breakpoints view to make sure there aren't any 
+ 	active breakpoints that you've forgotten about. "
+
+	I reset my breakpoints and this tab stopped popping up with my project.
+	
+===========================================================================================
+****************
+*RPN Calculator*
+****************
+	Problem: 
+
+	-When dividing by 0 an exception is thrown.
+
+	Steps taken:
+
+	-Adding specified language to display if user tries to divide by zero.
+
+	case "/":
+        	
+		if(Integer.parseInt(popoff2) != 0) {
+        	answer = Integer.parseInt(popoff1) / Integer.parseInt(popoff2);
+            System.out.println("Your answer is " + answer);
+		} else { 
+			System.out.println("Error! Cannot divide by 0");
+		}
+            break;
+============================================================================================
+***************************
+*Class Roster and Database*
+***************************
+	Problem:
+	-Hard coded spacing within the array to align all of the names and data when displayed.
+	So if any names were added or changed, the formatted spacing would be altered.
+	
+	Steps taken:
+	Removing the hard coded spacing and making use of the String.format function on my get.methods.
+
+	public String toString() {
+			return (String.format("%-6s", this.getId()) + "\t\t" + String.format("%-8s", this.getFirstName()) +"\t\t" + String.format("%-9s", this.getLastName()) +
+				"\t\t" + String.format("%-5s",  this.getEyeColor()) + "\t\t\t" + String.format("%2s", this.getMonthsEmployed()));
+		}
+
+============================================================================================
+********************
+*The Bank Statement*
+********************	
+	Problem:
+	-Same as Class Roster and Database
+	
+	Steps taken:
+	Removing the hard coded spacing and using and nesting String.format for correct decimal placement.
+
+From Account Class:
+
+public String print() {
+		//return "Account " + id + " balance is $ " + String.format("%.2f", balance);
+		return accountType + "\t\t" + id + "\t   " + description
+		+ "   " + String.format("%7s", String.format("%.2f", balance));
+	}
+
+From Savings Class:
+
+public String print() {
+		return super.print() + "\t" + " ****N/A****" + "\t" + String.format("%2s",String.format("%.3f", InterestRate));
+	}
+
+
+	Problem:
+	-Using months to calculate Interest on a deposit was an int. This prevented it from taking any partial
+	time frames(decimals)
+
+	Steps taken:
+	Changing the int getCalcDepositInterest method to type double to accept decimal places.
+
+public double calcDepositInterest(double months) {
+		double newInterest = ((getBalance() * InterestRate * months)/12);
+		if(months > 0) {
+		super.deposit(newInterest);
+		return newInterest;
+		} else {
+		return 0;
+		}
+=============================================================================================
+**********************************
+*Class Roster Array List Practice*
+**********************************
+
+	Problem:
+	None I could identify
+
+	Steps taken:
+	Pat on the back
